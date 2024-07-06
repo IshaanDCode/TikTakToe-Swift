@@ -3,10 +3,19 @@ import Foundation
 class GameState: ObservableObject
 {
     @Published var board = [[Cell]]()
-    
+    @Published var Turn = Tile.Cross
     init()
     {
         resetBoard()
+    }
+    func placeTile(_ row: Int,_ column: Int)
+    {
+        if (board[row][column].tile != Tile.Empty)
+        {
+            return
+        }
+        board[row][column].tile = Turn == Tile.Cross ? Tile.Cross : Tile.Nought
+        Turn = Turn == Tile.Cross ? Tile.Nought : Tile.Cross
     }
     func resetBoard()
     {

@@ -17,12 +17,17 @@ struct ContentView: View {
                         column in
                         
                         let cell = gameState.board[row][column] //finding the position by passing it throught the row and the column
-                        Text("X")
+                        Text(cell.displayTile())
                             .font(.system(size: 60))
+                            .foregroundColor(cell.tileColor())
                             .bold()
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .aspectRatio(1, contentMode: .fit)
                             .background(Color.white)
+                            .onTapGesture
+                            {
+                                gameState.placeTile(row, column)
+                            }
 
                     }
 
