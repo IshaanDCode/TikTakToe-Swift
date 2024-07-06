@@ -1,22 +1,37 @@
 import SwiftUI
 
-struct ContentView: View {
+struct ContentView: View
+{
     @StateObject var gameState = GameState()
-    var body: some View {
-        var borderSize = CGFloat(5)
+    
+    var body: some View
+    {
+        let borderSize = CGFloat(5)
         
-        VStack (spacing: borderSize)
+        Text(gameState.turnText())
+            .font(.title)
+            .bold()
+            .padding()
+        Spacer()
+        
+        Text(String(format: "Crosses: %d", gameState.crossesScore))
+            .font(.title)
+            .bold()
+            .padding()
+        
+        VStack(spacing: borderSize)
         {
-            
             ForEach(0...2, id: \.self)
             {
                 row in
-                HStack(spacing: borderSize){
+                HStack(spacing: borderSize)
+                {
                     ForEach(0...2, id: \.self)
                     {
                         column in
                         
-                        let cell = gameState.board[row][column] //finding the position by passing it throught the row and the column
+                        let cell = gameState.board[row][column]
+                        
                         Text(cell.displayTile())
                             .font(.system(size: 60))
                             .foregroundColor(cell.tileColor())
@@ -24,14 +39,12 @@ struct ContentView: View {
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .aspectRatio(1, contentMode: .fit)
                             .background(Color.white)
-                            .onTapGesture
-                            {
+                            .onTapGesture {
                                 gameState.placeTile(row, column)
                             }
-
                     }
-
                 }
+                
             }
         }
         .background(Color.black)
@@ -39,16 +52,24 @@ struct ContentView: View {
         .alert(isPresented: $gameState.showAlert)
         {
             Alert(
-                title: Text(.gameState.alertMessage)
+                title: Text(gameState.alertMessage),
                 dismissButton: .default(Text("Okay"))
+                {
+                    gameState.resetBoard()
+                }
             )
-            {
-                gameState.resetBoard()
-            }
         }
+        
+        Text(String(format: "Noughts: %d", gameState.noughtsScore))
+            .font(.title)
+            .bold()
+            .padding()
+        Spacer()
+    }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
-    
