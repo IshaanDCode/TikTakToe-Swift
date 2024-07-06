@@ -6,6 +6,7 @@ struct ContentView: View
     
     var body: some View
     {
+        
         let borderSize = CGFloat(5)
         
         Text(gameState.turnText())
