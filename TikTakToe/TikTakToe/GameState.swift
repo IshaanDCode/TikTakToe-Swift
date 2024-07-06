@@ -1,11 +1,26 @@
 import Foundation
 
-class GameState ObservableObject
+class GameState: ObservableObject
 {
     @Published var board = [[Cell]]()
     
-    init
+    init()
     {
+        resetBoard()
+    }
+    func resetBoard()
+    {
+        var newBoard = [[Cell]]()
         
+        for _ in 0...2
+        {
+            var row = [Cell]()
+            for _ in 0...2
+            {
+                row.append(Cell(tile: Tile.Empty))
+            }
+            newBoard.append(row)
+        }
+        board = newBoard
     }
 }

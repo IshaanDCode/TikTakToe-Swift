@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @StateObject var gameState = GameState()
     var body: some View {
         var borderSize = CGFloat(5)
         
@@ -15,6 +15,8 @@ struct ContentView: View {
                     ForEach(0...2, id: \.self)
                     {
                         column in
+                        
+                        let cell = gameState.board[row][column] //finding the position by passing it throught the row and the column
                         Text("X")
                             .font(.system(size: 60))
                             .bold()
