@@ -14,7 +14,7 @@ struct ContentView: View
             .bold()
             .padding()
         Spacer()
-        //Crosses win
+        //Crosses win the game
         Text(String(format: "Crosses: %d", gameState.crossesScore))
             .font(.title)
             .bold()
@@ -60,7 +60,7 @@ struct ContentView: View
                 }
             )
         }
-        //Noughts win
+        //Noughts win the game
         Text(String(format: "Noughts: %d", gameState.noughtsScore))
             .font(.title)
             .bold()
