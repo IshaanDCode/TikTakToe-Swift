@@ -2,8 +2,8 @@ import Foundation
 
 class GameState: ObservableObject
 {
-    @Published var board = [[Cell]]()
-    @Published var turn = Tile.Cross
+    @Published var board = [[Cell]]() //cells published
+    @Published var turn = Tile.Cross //Tile cross published
     @Published var noughtsScore = 0
     @Published var crossesScore = 0
     @Published var showAlert = false
