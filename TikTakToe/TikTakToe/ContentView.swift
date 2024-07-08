@@ -1,8 +1,8 @@
 import SwiftUI
 
-// Define a structure ContentView that conforms to the View protocol
+// Define a structure ContentView that cronforms to the View protocol
 struct ContentView: View {
-    // Create a state object gameState of type GameState
+    // Create a state object gameState of daya type GameState
     @StateObject var gameState = GameState()
     
     // Define the body of the view
@@ -10,6 +10,7 @@ struct ContentView: View {
         
         // Define a constant borderSize with a CGFloat value of 5
         let borderSize = CGFloat(5)
+//        A CGFloat is a floating point however it deals with the User Interface or graphics relatied calculations
         
         // Display the text showing whose turn it is
         Text(gameState.turnText())
@@ -26,6 +27,7 @@ struct ContentView: View {
             .padding()
         
         // VStack to display the game board
+        //Vstack positions them in a vertical line
         VStack(spacing: borderSize) {
             // Loop through rows
             ForEach(0...2, id: \.self) { row in
@@ -46,6 +48,7 @@ struct ContentView: View {
                             .background(Color.white)
                             .onTapGesture {
                                 gameState.placeTile(row, column)
+                                //YOutube tutorioal
                             }
                     }
                 }
