@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-// Define a struct `Cell` representing a single cell in the Tic-Tac-Toe game board
+// Define a struct ure called Cell` representing a single cell in the grid in theTic-Tac-Toe game board
 struct Cell {
     var tile: Tile // Represents the current state of the cell: Nought, Cross, or Empty
     
@@ -36,3 +36,5 @@ enum Tile {
     case Cross
     case Empty
 }
+//YOu must be wondering what is a enum(enumeration)
+// it is a user-defined data type that has a fixed set of related values(kind of a structure)

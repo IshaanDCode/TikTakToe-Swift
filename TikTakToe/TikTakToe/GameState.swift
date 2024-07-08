@@ -103,18 +103,32 @@ class GameState: ObservableObject {
         return board[row][column].tile == turn
     }
     
-    // Resets the game board to empty cells
+    // Resets the game board to empty cells and declare whos winnre
     func resetBoard() {
+        // Create a new 2D array called newBoard to hold the new state of the game board
         var newBoard = [[Cell]]()
         
+        // Loop three times to create three rows in the 2d arrat
         for _ in 0...2 {
-            var row = [Cell]()
+            //Help of yotube and the swift course
+            var row = [Cell]() // Initialize an empty array to hold cells for the current row
+            
+            // Loop three times to create three cells (columns) in the current row
             for _ in 0...2 {
+                // Append a new `Cell object with Tile.empty which represents an empty cell to the current row
                 row.append(Cell(tile: Tile.Empty))
+                // Append Adds a new element at the end of the array.
+
             }
+            
+            // Append the current row to the `newBoard` 2D array
             newBoard.append(row)
+            //Append Adds a new element at the end of the array.
+
         }
         
+        // Update the board property of the GameState object/calass to the newly created newBoard
         board = newBoard
     }
+
 }
