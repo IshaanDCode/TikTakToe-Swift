@@ -83,3 +83,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+//Declaration is some way
